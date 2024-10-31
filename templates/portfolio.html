@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">{{ portfolio.first_name }} {{ portfolio.last_name }}</h1>
+
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="{{ url_for('static', filename='images/' + portfolio.profile_picture) }}" alt="Profile Picture"
+                class="img-fluid rounded-circle mb-3" style="max-height: 200px;">
+            <a href="{{ url_for('download', portfolio_id=portfolio.id) }}" class="btn btn-primary btn-lg">Download
+                Portfolio PDF</a>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Information</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ portfolio.email }}</p>
+                    <p class="card-text"><strong>Phone:</strong> {{ portfolio.phone }}</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Bio</h5>
+                    <p class="card-text">{{ portfolio.bio }}</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Skills</h5>
+                    <p class="card-text">{{ portfolio.skills }}</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Profiles</h5>
+                    <p class="card-text">{{ portfolio.profiles }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
